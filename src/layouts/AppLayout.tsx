@@ -18,6 +18,7 @@ function AppLayout() {
           <NavLink to={routePaths.home} end>Accueil</NavLink>
           <NavLink to={routePaths.objectives}>Les objectifs</NavLink>
           <NavLink to={routePaths.process}>La démarche</NavLink>
+          <NavLink to={routePaths.about}>About me</NavLink>
         </nav>
         <button className="menu-button" type="button" aria-label="Ouvrir le menu">
           <span></span><span></span>
@@ -34,7 +35,7 @@ function AppLayout() {
           <span>cercle</span>
         </Link>
         <span>Un prototype pensé pour les humains.</span>
-        <Link to={routePaths.home}>Retour à l'accueil ↑</Link>
+        <Link to={routePaths.about}>About me ↗</Link>
       </footer>
     </main>
   )

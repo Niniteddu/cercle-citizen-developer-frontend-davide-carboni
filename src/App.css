@@ -130,6 +130,23 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .process-step p { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; max-width: 480px; }
 .process-back-link { align-self: end; grid-column: 1; margin: 0; }
 
+.about-page { display: grid; flex: 1; gap: 10%; grid-template-columns: .9fr 1.1fr; min-height: 0; padding: 6% 10%; }
+.about-intro { align-self: center; }
+.about-intro h1 { font-size: clamp(42px, 4.8vw, 70px); }
+.about-panel { align-self: center; background: var(--yellow); min-height: 470px; padding: 34px; position: relative; }
+.about-mark { align-items: center; border: 1px solid var(--ink); border-radius: 50%; display: flex; height: 190px; justify-content: center; margin: 0 auto 42px; position: relative; transform: rotate(-8deg); width: 190px; }
+.about-mark::before { border: 1px solid var(--ink); border-radius: 50%; content: ''; height: 125%; position: absolute; transform: rotate(34deg); width: 72%; }
+.about-mark span { font-size: 42px; font-weight: 800; letter-spacing: -.08em; }
+.about-mark i { background: var(--coral); border-radius: 50%; height: 18px; position: absolute; right: 12px; top: 24px; width: 18px; }
+.about-links { border-top: 1px solid rgba(36, 37, 43, .35); }
+.about-link { align-items: center; border-bottom: 1px solid rgba(36, 37, 43, .35); display: grid; gap: 18px; grid-template-columns: 30px 1fr 24px; padding: 15px 0; transition: color .2s, padding .2s; }
+.about-link strong, .about-link small { display: block; }
+.about-link strong { font-size: 13px; }
+.about-link small { font-size: 11px; margin-top: 4px; opacity: .65; }
+.about-link-arrow { color: var(--coral); font-size: 20px; text-align: right; }
+.about-link:hover, .about-link:focus-visible { color: var(--coral); padding-left: 7px; }
+.about-link:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
+
 .task-wheel-page { display: flex; flex: 1; flex-direction: column; min-height: 0; padding: 3% 8%; }
 .task-wheel-header { align-items: end; display: flex; justify-content: space-between; margin-bottom: 2%; }
 .task-wheel-header h1 { font-size: clamp(34px, 4vw, 60px); margin-bottom: 0; white-space: nowrap; }
@@ -224,6 +241,11 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
   .process-intro { margin-bottom: 48px; }
   .process-step { gap: 14px; grid-template-columns: 34px 1fr; }
   .process-back-link { display: inline-flex; margin-top: 32px; }
+  .about-page { display: block; overflow: auto; padding: 58px 8%; }
+  .about-intro { margin-bottom: 48px; }
+  .about-panel { min-height: 0; padding: 28px 22px; }
+  .about-mark { height: 150px; margin-bottom: 34px; width: 150px; }
+  .about-mark span { font-size: 34px; }
   .task-wheel-page { overflow: auto; padding: 42px 8%; }
   .task-wheel-header { align-items: start; display: block; margin-bottom: 36px; }
   .task-wheel-header h1 { white-space: normal; }

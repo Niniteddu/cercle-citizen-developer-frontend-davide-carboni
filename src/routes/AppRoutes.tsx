@@ -6,6 +6,7 @@ import IcebreakerPage from '../pages/IcebreakerPage'
 import MoodBarometerPage from '../pages/MoodBarometerPage'
 import TaskWheelPage from '../pages/TaskWheelPage'
 import WelcomePage from '../pages/WelcomePage'
+import AboutPage from '../pages/AboutPage'
 import { routePaths } from './routePaths'
 
 // Keeps route definitions separate from the application entry point.
@@ -19,6 +20,7 @@ function AppRoutes() {
         <Route path={routePaths.icebreaker} element={<IcebreakerPage />} />
         <Route path={routePaths.moodBarometer} element={<MoodBarometerPage />} />
         <Route path={routePaths.process} element={<ProcessPage />} />
+        <Route path={routePaths.about} element={<AboutPage />} />
       </Route>
     </Routes>
   )
