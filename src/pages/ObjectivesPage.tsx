@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { createObjectiveDataProvider } from '../data/providers/ObjectiveDataProviderFactory'
 import type { Objective } from '../domain/objectives'
 
@@ -48,13 +49,13 @@ function ObjectivesPage() {
         {isLoading && <p className="objectives-status">Chargement des objectifs…</p>}
         {error && <p className="objectives-status objectives-error">{error}</p>}
         {!isLoading && !error && objectives.map((objective, index) => (
-          <article className={`objective-card ${objectiveColors[index % objectiveColors.length]}`} id={objective.id} key={objective.id}>
+          <Link className={`objective-card ${objectiveColors[index % objectiveColors.length]}`} id={objective.id} key={objective.id} to={objective.id === 'roue-des-taches' ? '/objectifs/roue-des-taches' : `/objectifs#${objective.id}`}>
             <span className="feature-index">{String(objective.order).padStart(2, '0')}</span>
             <div className="objective-orbit" aria-hidden="true"></div>
             <h2>{objective.title}</h2>
             <p>{objective.description}</p>
             <span className="objective-arrow" aria-hidden="true">↗</span>
-          </article>
+          </Link>
         ))}
       </section>
 
