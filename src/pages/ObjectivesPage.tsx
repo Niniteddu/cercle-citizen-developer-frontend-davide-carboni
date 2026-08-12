@@ -1,28 +1,42 @@
-const objectives = [
-  {
-    number: '01',
-    title: 'Roue des tâches',
-    description: 'Répartir aléatoirement les tâches entre les membres d’une équipe.',
-    color: 'coral-card',
-    id: 'roue-des-taches',
-  },
-  {
-    number: '02',
-    title: 'Brise-glace',
-    description: 'Piocher une question ou un mini-jeu pour démarrer une réunion.',
-    color: 'yellow-card',
-    id: 'brise-glace',
-  },
-  {
-    number: '03',
-    title: 'Baromètre d’humeur',
-    description: 'Partager simplement son humeur et prendre le pouls de l’équipe.',
-    color: 'dark-card',
-    id: 'barometre-humeur',
-  },
-]
+import { useEffect, useState } from 'react'
+import { createObjectiveDataProvider } from '../data/providers/ObjectiveDataProviderFactory'
+import type { Objective } from '../domain/objectives'
+
+const objectiveColors = ['coral-card', 'yellow-card', 'dark-card']
+// The page consumes data through the selected provider instead of knowing its source.
+const objectiveDataProvider = createObjectiveDataProvider()
 
 function ObjectivesPage() {
+  const [objectives, setObjectives] = useState<Objective[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let isMounted = true
+
+    objectiveDataProvider
+      .getObjectives()
+      .then((loadedObjectives) => {
+        if (isMounted) {
+          setObjectives(loadedObjectives)
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setError('Impossible de charger les objectifs.')
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsLoading(false)
+        }
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
   return (
     <section className="objectives-page">
       <section className="objectives-heading">
@@ -31,9 +45,11 @@ function ObjectivesPage() {
       </section>
 
       <section className="objectives-grid" aria-label="Les trois objectifs de Cercle">
-        {objectives.map((objective) => (
-          <article className={`objective-card ${objective.color}`} id={objective.id} key={objective.number}>
-            <span className="feature-index">{objective.number}</span>
+        {isLoading && <p className="objectives-status">Chargement des objectifs…</p>}
+        {error && <p className="objectives-status objectives-error">{error}</p>}
+        {!isLoading && !error && objectives.map((objective, index) => (
+          <article className={`objective-card ${objectiveColors[index % objectiveColors.length]}`} id={objective.id} key={objective.id}>
+            <span className="feature-index">{String(objective.order).padStart(2, '0')}</span>
             <div className="objective-orbit" aria-hidden="true"></div>
             <h2>{objective.title}</h2>
             <p>{objective.description}</p>
