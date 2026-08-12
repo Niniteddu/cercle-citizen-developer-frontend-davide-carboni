@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { createObjectiveDataProvider } from '../data/providers/ObjectiveDataProviderFactory'
 import type { Objective } from '../domain/objectives'
+import { routePaths } from '../routes/routePaths'
 
 const objectiveColors = ['coral-card', 'yellow-card', 'dark-card']
 // The page consumes data through the selected provider instead of knowing its source.
@@ -49,7 +50,7 @@ function ObjectivesPage() {
         {isLoading && <p className="objectives-status">Chargement des objectifs…</p>}
         {error && <p className="objectives-status objectives-error">{error}</p>}
         {!isLoading && !error && objectives.map((objective, index) => (
-          <Link className={`objective-card ${objectiveColors[index % objectiveColors.length]}`} id={objective.id} key={objective.id} to={`/objectifs/${objective.id}`}>
+          <Link className={`objective-card ${objectiveColors[index % objectiveColors.length]}`} id={objective.id} key={objective.id} to={routePaths.objective(objective.id)}>
             <span className="feature-index">{String(objective.order).padStart(2, '0')}</span>
             <div className="objective-orbit" aria-hidden="true"></div>
             <h2>{objective.title}</h2>

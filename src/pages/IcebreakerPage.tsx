@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import DrawPromptButton from '../components/icebreaker/DrawPromptButton'
+import IcebreakerPrompt from '../components/icebreaker/IcebreakerPrompt'
 
 const prompts = [
   'Quel petit succès mérite d’être célébré cette semaine ?',
@@ -21,10 +23,8 @@ function IcebreakerPage() {
         <p className="eyebrow">Objectif 02 · Brise-glace</p>
         <h1>Ouvrir la<br /><em>conversation.</em></h1>
         <p className="ritual-label">Question du jour</p>
-        <blockquote className="icebreaker-prompt">{prompt}</blockquote>
-        <button className="spin-button" type="button" onClick={drawPrompt}>
-          Une autre question <span aria-hidden="true">↗</span>
-        </button>
+        <IcebreakerPrompt prompt={prompt} />
+        <DrawPromptButton onDraw={drawPrompt} />
       </div>
       <div className="ritual-art icebreaker-art" aria-hidden="true">
         <span className="ritual-art-number">02</span>

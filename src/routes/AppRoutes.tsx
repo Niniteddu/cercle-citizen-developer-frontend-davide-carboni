@@ -6,18 +6,19 @@ import IcebreakerPage from '../pages/IcebreakerPage'
 import MoodBarometerPage from '../pages/MoodBarometerPage'
 import TaskWheelPage from '../pages/TaskWheelPage'
 import WelcomePage from '../pages/WelcomePage'
+import { routePaths } from './routePaths'
 
 // Keeps route definitions separate from the application entry point.
 function AppRoutes() {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/objectifs" element={<ObjectivesPage />} />
-        <Route path="/objectifs/roue-des-taches" element={<TaskWheelPage />} />
-        <Route path="/objectifs/brise-glace" element={<IcebreakerPage />} />
-        <Route path="/objectifs/barometre-humeur" element={<MoodBarometerPage />} />
-        <Route path="/demarche" element={<ProcessPage />} />
+        <Route path={routePaths.home} element={<WelcomePage />} />
+        <Route path={routePaths.objectives} element={<ObjectivesPage />} />
+        <Route path={routePaths.taskWheel} element={<TaskWheelPage />} />
+        <Route path={routePaths.icebreaker} element={<IcebreakerPage />} />
+        <Route path={routePaths.moodBarometer} element={<MoodBarometerPage />} />
+        <Route path={routePaths.process} element={<ProcessPage />} />
       </Route>
     </Routes>
   )

@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import { routePaths } from '../routes/routePaths'
 
 function AppLayout() {
   return (
@@ -9,14 +10,14 @@ function AppLayout() {
       </div>
 
       <header className="site-header">
-        <Link className="brand" to="/" aria-label="Cercle accueil">
+        <Link className="brand" to={routePaths.home} aria-label="Cercle accueil">
           <span className="brand-mark">c</span>
           <span>cercle</span>
         </Link>
         <nav aria-label="Navigation principale">
-          <NavLink to="/" end>Accueil</NavLink>
-          <NavLink to="/objectifs">Les objectifs</NavLink>
-          <NavLink to="/demarche">La démarche</NavLink>
+          <NavLink to={routePaths.home} end>Accueil</NavLink>
+          <NavLink to={routePaths.objectives}>Les objectifs</NavLink>
+          <NavLink to={routePaths.process}>La démarche</NavLink>
         </nav>
         <button className="menu-button" type="button" aria-label="Ouvrir le menu">
           <span></span><span></span>
@@ -28,12 +29,12 @@ function AppLayout() {
       </div>
 
       <footer className="site-footer">
-        <Link className="brand" to="/" aria-label="Cercle accueil">
+        <Link className="brand" to={routePaths.home} aria-label="Cercle accueil">
           <span className="brand-mark">c</span>
           <span>cercle</span>
         </Link>
         <span>Un prototype pensé pour les humains.</span>
-        <Link to="/">Retour à l'accueil ↑</Link>
+        <Link to={routePaths.home}>Retour à l'accueil ↑</Link>
       </footer>
     </main>
   )
