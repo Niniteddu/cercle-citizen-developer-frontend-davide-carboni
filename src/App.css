@@ -131,7 +131,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 
 .task-wheel-page { display: flex; flex: 1; flex-direction: column; min-height: 0; padding: 3% 8%; }
 .task-wheel-header { align-items: end; display: flex; justify-content: space-between; margin-bottom: 2%; }
-.task-wheel-header h1 { font-size: clamp(38px, 4.5vw, 66px); margin-bottom: 0; }
+.task-wheel-header h1 { font-size: clamp(34px, 4vw, 60px); margin-bottom: 0; white-space: nowrap; }
 .task-wheel-intro { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0 0 5px; max-width: 310px; }
 .task-wheel-layout { display: grid; flex: 1; gap: 6%; grid-template-columns: minmax(220px, .7fr) 1.3fr; min-height: 0; }
 .task-wheel-settings { align-self: center; display: grid; gap: 30px; }
@@ -202,6 +202,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
   .process-back-link { display: inline-flex; margin-top: 32px; }
   .task-wheel-page { overflow: auto; padding: 42px 8%; }
   .task-wheel-header { align-items: start; display: block; margin-bottom: 36px; }
+  .task-wheel-header h1 { white-space: normal; }
   .task-wheel-intro { margin-top: 20px; }
   .task-wheel-layout { display: block; }
   .task-wheel-settings { gap: 24px; margin-bottom: 40px; }

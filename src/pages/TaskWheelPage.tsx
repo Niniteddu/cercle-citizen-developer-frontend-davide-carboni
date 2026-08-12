@@ -53,7 +53,7 @@ function TaskWheelPage() {
       <div className="task-wheel-header">
         <div>
           <p className="eyebrow">Objectif 01 · Roue des tâches</p>
-          <h1>Qui prend<br /><em>quoi ?</em></h1>
+          <h1>Qui prend <em>quoi ?</em></h1>
         </div>
       </div>
 
