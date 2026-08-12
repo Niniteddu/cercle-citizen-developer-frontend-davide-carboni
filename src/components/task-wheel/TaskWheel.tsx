@@ -1,5 +1,7 @@
+import type { TaskWheelItem } from '../../domain/taskWheel'
+
 type TaskWheelProps = {
-  items: string[]
+  items: TaskWheelItem[]
   rotation: number
   isSpinning: boolean
   onTransitionEnd: () => void
@@ -9,10 +11,7 @@ const colors = ['#e96555', '#e9bd45', '#a9c4c8', '#24252b']
 
 function polarToCartesian(center: number, radius: number, angle: number) {
   const radians = ((angle - 90) * Math.PI) / 180
-  return {
-    x: center + radius * Math.cos(radians),
-    y: center + radius * Math.sin(radians),
-  }
+  return { x: center + radius * Math.cos(radians), y: center + radius * Math.sin(radians) }
 }
 
 function createSegmentPath(index: number, itemCount: number) {
@@ -33,31 +32,16 @@ function TaskWheel({ items, rotation, isSpinning, onTransitionEnd }: TaskWheelPr
   return (
     <div className="task-wheel-frame">
       <span className="wheel-pointer" aria-hidden="true"></span>
-      <svg
-        className={`task-wheel ${isSpinning ? 'is-spinning' : ''}`}
-        role="img"
-        aria-label="Roue des tâches"
-        viewBox="0 0 300 300"
-        style={{ transform: `rotate(${rotation}deg)` }}
-        onTransitionEnd={onTransitionEnd}
-      >
+      <svg className={`task-wheel ${isSpinning ? 'is-spinning' : ''}`} role="img" aria-label="Roue des tâches" viewBox="0 0 300 300" style={{ transform: `rotate(${rotation}deg)` }} onTransitionEnd={onTransitionEnd}>
         <circle cx="150" cy="150" r="146" fill="#f8f7f2" />
         {items.length > 0 ? items.map((item, index) => {
           const labelPosition = polarToCartesian(150, 92, index * angle + angle / 2)
 
           return (
-            <g key={`${item}-${index}`}>
+            <g key={`${item.id}-${index}`}>
               <path d={createSegmentPath(index, itemCount)} fill={colors[index % colors.length]} stroke="#f8f7f2" strokeWidth="2" />
-              <text
-                fill={index % colors.length === 3 ? '#fff' : '#24252b'}
-                fontSize="10"
-                fontWeight="700"
-                textAnchor="middle"
-                x={labelPosition.x}
-                y={labelPosition.y}
-                transform={`rotate(${index * angle + angle / 2}, ${labelPosition.x}, ${labelPosition.y})`}
-              >
-                {item.length > 18 ? `${item.slice(0, 18)}…` : item}
+              <text fill={index % colors.length === 3 ? '#fff' : '#24252b'} fontSize="10" fontWeight="700" textAnchor="middle" x={labelPosition.x} y={labelPosition.y} transform={`rotate(${index * angle + angle / 2}, ${labelPosition.x}, ${labelPosition.y})`}>
+                {item.label.length > 18 ? `${item.label.slice(0, 18)}…` : item.label}
               </text>
             </g>
           )

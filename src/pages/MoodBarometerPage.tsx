@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import MoodConfirmation from '../components/mood-barometer/MoodConfirmation'
+import MoodOptions, { type Mood } from '../components/mood-barometer/MoodOptions'
 
-const moods = [
+const moods: Mood[] = [
   { emoji: '☀', label: 'En forme' },
   { emoji: '◒', label: 'Ça va' },
   { emoji: '☁', label: 'Fatigué·e' },
@@ -16,15 +18,8 @@ function MoodBarometerPage() {
         <p className="eyebrow">Objectif 03 · Baromètre d’humeur</p>
         <h1>Prendre le<br /><em>pouls.</em></h1>
         <p className="ritual-description">Comment arrivez-vous aujourd’hui ? Choisissez une humeur pour donner une couleur au début de la réunion.</p>
-        <div className="mood-options" role="group" aria-label="Choisir son humeur">
-          {moods.map((mood) => (
-            <button className={`mood-option ${selectedMood === mood.label ? 'selected' : ''}`} key={mood.label} type="button" onClick={() => setSelectedMood(mood.label)}>
-              <span className="mood-emoji" aria-hidden="true">{mood.emoji}</span>
-              <span>{mood.label}</span>
-            </button>
-          ))}
-        </div>
-        {selectedMood && <p className="mood-confirmation" aria-live="polite">Votre humeur : <strong>{selectedMood}</strong></p>}
+        <MoodOptions moods={moods} selectedMood={selectedMood} onSelect={setSelectedMood} />
+        <MoodConfirmation mood={selectedMood} />
       </div>
       <div className="ritual-art mood-art" aria-hidden="true">
         <span className="ritual-art-number">03</span>

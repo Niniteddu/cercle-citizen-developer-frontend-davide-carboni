@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { routePaths } from '../routes/routePaths'
 
 const steps = [
   {
@@ -52,7 +53,7 @@ function ProcessPage() {
         ))}
       </div>
 
-      <Link className="primary-link process-back-link" to="/">
+      <Link className="primary-link process-back-link" to={routePaths.home}>
         Revenir à l'accueil <span aria-hidden="true">↗</span>
       </Link>
     </section>
