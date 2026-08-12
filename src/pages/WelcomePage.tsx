@@ -11,13 +11,13 @@ function WelcomePage() {
           du cas pratique. Une seule sera développée jusqu'au prototype fonctionnel.
         </p>
         <div className="objective-actions" aria-label="Choisir un objectif">
-          <Link className="objective-button objective-button-primary" to="/objectifs#roue-des-taches">
+          <Link className="objective-button objective-button-primary" to="/objectifs/roue-des-taches">
             <span>01</span> Roue des tâches <strong>↗</strong>
           </Link>
-          <Link className="objective-button" to="/objectifs#brise-glace">
+          <Link className="objective-button" to="/objectifs/brise-glace">
             <span>02</span> Générateur de brise-glace <strong>↗</strong>
           </Link>
-          <Link className="objective-button" to="/objectifs#barometre-humeur">
+          <Link className="objective-button" to="/objectifs/barometre-humeur">
             <span>03</span> Baromètre d'humeur <strong>↗</strong>
           </Link>
         </div>
