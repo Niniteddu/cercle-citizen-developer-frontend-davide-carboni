@@ -115,6 +115,8 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .objectives-page .objectives-heading .hero-intro { margin-bottom: 0; }
 .objectives-page .objectives-grid { flex: 1; min-height: 0; padding: 0 10% 3%; }
 .objectives-page .objective-card { min-height: 0; }
+.objectives-status { align-self: center; color: var(--muted); font: 12px 'DM Mono', monospace; grid-column: 1 / -1; }
+.objectives-error { color: var(--coral); }
 .objectives-page .objectives-footer { padding: 2% 10%; }
 
 .process-page { display: grid; flex: 1; gap: 40px 9%; grid-template-columns: .8fr 1.2fr; padding: 6% 10%; }
