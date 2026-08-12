@@ -1,21 +1,16 @@
 import type { Objective } from '../../domain/objectives'
+import { ObjectiveApiService } from '../../services/objectives/ObjectiveApiService'
 import type { ObjectiveDataProvider } from './ObjectiveDataProvider'
 
 // The backend implementation follows the same contract as the local strategy.
 export class BackendObjectiveDataProvider implements ObjectiveDataProvider {
-  private readonly baseUrl: string
+  private readonly objectiveApiService: ObjectiveApiService
 
-  constructor(baseUrl: string) {
-    this.baseUrl = baseUrl
+  constructor(objectiveApiService: ObjectiveApiService) {
+    this.objectiveApiService = objectiveApiService
   }
 
   async getObjectives(): Promise<Objective[]> {
-    const response = await fetch(`${this.baseUrl}/objectives`)
-
-    if (!response.ok) {
-      throw new Error(`Unable to load objectives: ${response.status}`)
-    }
-
-    return response.json() as Promise<Objective[]>
+    return this.objectiveApiService.getAll()
   }
 }
