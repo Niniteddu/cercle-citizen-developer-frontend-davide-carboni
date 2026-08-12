@@ -41,6 +41,14 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .hero-intro { color: var(--muted); font-size: 16px; line-height: 1.8; max-width: 420px; }
 .primary-link { border-bottom: 1px solid var(--ink); display: inline-flex; font-size: 12px; font-weight: 800; gap: 28px; letter-spacing: .08em; margin-top: 28px; padding-bottom: 10px; text-transform: uppercase; }
 .primary-link span { color: var(--coral); font-size: 19px; line-height: 10px; }
+.objective-actions { display: grid; gap: 8px; margin-top: 34px; max-width: 470px; }
+.objective-button { align-items: center; border: 1px solid var(--line); display: flex; font-size: 12px; font-weight: 700; gap: 14px; justify-content: space-between; letter-spacing: .02em; padding: 13px 15px; transition: background .2s, color .2s, border-color .2s; }
+.objective-button span { color: var(--coral); font: 11px 'DM Mono', monospace; }
+.objective-button strong { color: var(--coral); font-size: 17px; font-weight: 400; margin-left: auto; }
+.objective-button:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.objective-button-primary { background: var(--coral); border-color: var(--coral); color: #fff; }
+.objective-button-primary span, .objective-button-primary strong { color: #fff; }
+.objective-button-primary:hover { background: var(--ink); border-color: var(--ink); }
 .hero-art { background: var(--blue); min-height: 650px; overflow: hidden; position: relative; }
 .sun-disc { background: var(--yellow); border-radius: 50%; height: min(28vw, 390px); position: absolute; right: 12%; top: 15%; width: min(28vw, 390px); }
 .art-card { align-items: center; background: var(--paper); display: flex; font: 11px 'DM Mono', monospace; justify-content: center; position: absolute; text-transform: uppercase; }
@@ -95,6 +103,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
   .menu-button { display: block; }
   .hero-section { display: flex; flex-direction: column; }
   .hero-copy { padding: 72px 8% 64px; }
+  .objective-actions { max-width: none; }
   .hero-art { min-height: 390px; }
   .sun-disc { height: 245px; width: 245px; }
   .art-card-one { height: 90px; left: 10%; width: 110px; }

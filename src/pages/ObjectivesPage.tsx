@@ -3,21 +3,24 @@ import { Link } from 'react-router-dom'
 const objectives = [
   {
     number: '01',
-    title: 'Répartir',
-    description: 'Donner à chacun une tâche claire, sans perdre le plaisir de la surprise.',
+    title: 'Roue des tâches',
+    description: 'Répartir aléatoirement les tâches entre les membres d’une équipe.',
     color: 'coral-card',
+    id: 'roue-des-taches',
   },
   {
     number: '02',
-    title: 'Respirer',
-    description: 'Créer un moment léger pour se retrouver avant de se remettre en mouvement.',
+    title: 'Brise-glace',
+    description: 'Piocher une question ou un mini-jeu pour démarrer une réunion.',
     color: 'yellow-card',
+    id: 'brise-glace',
   },
   {
     number: '03',
-    title: 'Avancer',
-    description: 'Faire émerger une dynamique commune et transformer les intentions en actions.',
+    title: 'Baromètre d’humeur',
+    description: 'Partager simplement son humeur et prendre le pouls de l’équipe.',
     color: 'dark-card',
+    id: 'barometre-humeur',
   },
 ]
 
@@ -52,7 +55,7 @@ function ObjectivesPage() {
 
       <section className="objectives-grid" aria-label="Les trois objectifs de Cercle">
         {objectives.map((objective) => (
-          <article className={`objective-card ${objective.color}`} key={objective.number}>
+          <article className={`objective-card ${objective.color}`} id={objective.id} key={objective.number}>
             <span className="feature-index">{objective.number}</span>
             <div className="objective-orbit" aria-hidden="true"></div>
             <h2>{objective.title}</h2>

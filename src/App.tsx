@@ -6,8 +6,8 @@ function WelcomePage() {
   return (
     <main className="site-shell">
       <div className="topline">
-        <span>Un outil pour mieux travailler ensemble</span>
-        <span>Prototype Cercle · 2026</span>
+        <span>Un rituel simple pour les équipes</span>
+        <span>Cas pratique · Citizen Developer</span>
       </div>
 
       <header className="site-header">
@@ -17,8 +17,8 @@ function WelcomePage() {
         </Link>
         <nav aria-label="Navigation principale">
           <a className="active" href="#accueil">Accueil</a>
-          <Link to="/objectifs">Fonctionnalités</Link>
-          <a href="#equipe">L'équipe</a>
+          <Link to="/objectifs">Choisir un rituel</Link>
+          <Link to="/objectifs">Les objectifs</Link>
         </nav>
         <button className="menu-button" type="button" aria-label="Ouvrir le menu">
           <span></span><span></span>
@@ -27,15 +27,23 @@ function WelcomePage() {
 
       <section className="hero-section" id="accueil">
         <div className="hero-copy">
-          <p className="eyebrow">Le rituel qui lance la journée</p>
-          <h1>Donner du rythme<br /><em>au collectif.</em></h1>
+          <p className="eyebrow">Bienvenue à l'équipe qui analyse l'app</p>
+          <h1>Un petit cercle<br /><em>pour avancer ensemble.</em></h1>
           <p className="hero-intro">
-            Une manière simple et joyeuse de répartir les tâches, faire circuler
-            l'énergie et commencer chaque réunion du bon pied.
+            Bonjour et bienvenue. Cette première page présente les trois pistes
+            du cas pratique. Une seule sera développée jusqu'au prototype fonctionnel.
           </p>
-          <Link className="primary-link" to="/objectifs">
-            Découvrir l'outil <span aria-hidden="true">↗</span>
-          </Link>
+          <div className="objective-actions" aria-label="Choisir un objectif">
+            <Link className="objective-button objective-button-primary" to="/objectifs#roue-des-taches">
+              <span>01</span> Roue des tâches <strong>↗</strong>
+            </Link>
+            <Link className="objective-button" to="/objectifs#brise-glace">
+              <span>02</span> Générateur de brise-glace <strong>↗</strong>
+            </Link>
+            <Link className="objective-button" to="/objectifs#barometre-humeur">
+              <span>03</span> Baromètre d'humeur <strong>↗</strong>
+            </Link>
+          </div>
         </div>
         <div className="hero-art" aria-label="Illustration abstraite du travail collectif" role="img">
           <div className="sun-disc"></div>
@@ -46,47 +54,6 @@ function WelcomePage() {
         </div>
       </section>
 
-      <section className="intro-section" id="equipe">
-        <p className="section-number">01 / 03</p>
-        <div>
-          <h2>Chaque voix compte<br /><em>dans le cercle.</em></h2>
-          <p className="section-text">Cercle crée un espace de confiance pour les équipes qui avancent, apprennent et construisent ensemble.</p>
-        </div>
-        <div className="accent-note">Faire simple.<br /><strong>Faire ensemble.</strong></div>
-      </section>
-
-      <section className="feature-section" id="fonctionnalites">
-        <div className="section-heading">
-          <p className="eyebrow">Une base pour vos rituels</p>
-          <h2>Le collectif<br /><em>en mouvement.</em></h2>
-        </div>
-        <div className="feature-grid">
-          <article className="feature-card coral-card">
-            <span className="feature-index">01</span>
-            <div className="feature-icon">↻</div>
-            <h3>Répartir</h3>
-            <p>La roue attribue une tâche à la bonne personne, au bon moment.</p>
-          </article>
-          <article className="feature-card yellow-card">
-            <span className="feature-index">02</span>
-            <div className="feature-icon">◌</div>
-            <h3>Respirer</h3>
-            <p>Un démarrage léger pour rendre les échanges plus naturels.</p>
-          </article>
-          <article className="feature-card dark-card">
-            <span className="feature-index">03</span>
-            <div className="feature-icon">✳</div>
-            <h3>Avancer</h3>
-            <p>Une vision partagée pour que chacun sache où contribuer.</p>
-          </article>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <span className="brand"><span className="brand-mark">c</span> cercle</span>
-        <span>Un prototype pensé pour les humains.</span>
-        <a href="#accueil">Retour en haut ↑</a>
-      </footer>
     </main>
   )
 }
